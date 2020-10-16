@@ -11,4 +11,6 @@ GIT=/usr/bin/git
 # 1. Checkout private repo (https://github.com/AldoIrvine111/usapA3
 $ECHO "Checkout private repo"
 $GIT pull    # Pull latest update
-$GIT status
+$GIT log
+
+
