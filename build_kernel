@@ -11,9 +11,14 @@ LS=/bin/ls
 
 # 1. Checkout private repo (https://github.com/AldoIrvine111/usapA3
 $ECHO "Checkout private repo"
-$LS -a 
+
+$LS -a    # Check before git clone 
 $GIT clone git@github.com:AldoIrvine111/usapA3
-pwd 
-cd usapA3
+$LS -a    # Check after git clone
+cd usapA3 || exit
+
+echo "Git pull"
+$GIT pull   #Pull latest branch
 $LS -a
 pwd
+
