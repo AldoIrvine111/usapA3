@@ -12,13 +12,19 @@ LS=/bin/ls
 # 1. Checkout private repo (https://github.com/AldoIrvine111/usapA3
 $ECHO "Checkout private repo"
 
-$LS -a    # Check before git clone 
-$GIT clone git@github.com:AldoIrvine111/usapA3
-$LS -a    # Check after git clone
-cd usapA3 || exit
+# Use if statement to check if repo is not existed, cloned else pull to update latest changes made in repo.
 
-echo "Git pull"
-$GIT pull   #Pull latest branch
-$LS -a
-pwd
+if [ -d usapA3 ]
+then
+	# Pull any changes made
+	$ECHO "Directory usapA3 exist, pulling latest master branch"
+	$GIT pull
+	$GIT log 
+	$ECHO "Pulled latest branch"
+else
+	$ECHO "Directory usapA3 does not exist, cloning repo using SSH"
+	$GIT clone git@github.com:AldoIrvine111/usapA3.git
+	$LS -a 
+	$ECHP "Complete cloning repo"
+fi
 
