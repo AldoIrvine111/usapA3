@@ -18,10 +18,12 @@ $ECHO "1. Checkout private repo"
 
 if [ -d usapA3 ]
 then
+	cd usapA3 || exit
 	# Pull any changes made
 	$ECHO "Directory usapA3 exist, pulling latest master branch"
 	$GIT pull
-       	$GIT log	
+       	$GIT log
+	cd ..	
 else
 	$ECHO "Directory usapA3 does not exist, cloning repo using SSH"
 	$GIT clone git@github.com:AldoIrvine111/usapA3.git
@@ -39,9 +41,11 @@ $ECHO "2. Checkput raspbbery pi kernel repository"
 
 if [ -d linux ]
 then
+	cd linux || exit
 	# Pull any changes made
 	$ECHO "Directory linux exist, pulling latest master branch"
 	$GIT pull 
+	cd ..
 else
 	$ECHO "Directory linux does not exist, cloning repo"
 	$GIT clone --depth=1 https://github.com/raspberrypi/linux
