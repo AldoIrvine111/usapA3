@@ -8,10 +8,12 @@
 ECHO=/bin/echo
 GIT=/usr/bin/git
 LS=/bin/ls
+CP=/bin/cp
 
 # 1. Checkout private repo (https://github.com/AldoIrvine111/usapA3
 
 # Use if statement to check if repo is not existed, cloned else pull to update latest changes made in repo.
+$ECHO
 $ECHO "1. Checkout private repo"
 
 if [ -d usapA3 ]
@@ -50,12 +52,19 @@ $ECHO
 $LS -a 
 $ECHO
 
-# Check .config file exist 
+# 3. Copy your ".config" file into the right place
+# Copy .config file from usapA3 to linux 
+
 cd usapA3 || exit
-pwd
+
 if [ -e .config ] 
 then 
-	$ECHO ".config file exist"
+	$ECHO "Copying .config to ../linux"
+	$CP .config ../linux
+	cd ../linux || exit
 else
 	$ECHO ".config file does not exist"
 fi
+
+$ECHO
+pwd
