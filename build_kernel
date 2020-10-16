@@ -10,21 +10,52 @@ GIT=/usr/bin/git
 LS=/bin/ls
 
 # 1. Checkout private repo (https://github.com/AldoIrvine111/usapA3
-$ECHO "Checkout private repo"
 
 # Use if statement to check if repo is not existed, cloned else pull to update latest changes made in repo.
+$ECHO "1. Checkout private repo"
 
 if [ -d usapA3 ]
 then
 	# Pull any changes made
 	$ECHO "Directory usapA3 exist, pulling latest master branch"
-	$GIT pull
-	$GIT log 
-	$ECHO "Pulled latest branch"
+	$GIT pull 
 else
 	$ECHO "Directory usapA3 does not exist, cloning repo using SSH"
 	$GIT clone git@github.com:AldoIrvine111/usapA3.git
 	$LS -a 
-	$ECHP "Complete cloning repo"
+	$ECHO "Complete cloning repo (usapA3)"
 fi
 
+
+# 2. Checkout raspberry pi kernel repository
+
+# Use if statement to check if repo is not existed, cloned else pull to update latest changes made in repo.
+
+$ECHO 
+$ECHO "2. Checkput raspbbery pi kernel repository"
+
+if [ -d linux ]
+then
+	# Pull any changes made
+	$ECHO "Directory linux exist, pulling latest master branch"
+	$GIT pull 
+else
+	$ECHO "Directory linux does not exist, cloning repo"
+	$GIT clone --depth=1 https://github.com/raspberrypi/linux
+	$LS -a 
+	$ECHO "Complete cloning repo (linux)"
+fi
+
+$ECHO 
+$LS -a 
+$ECHO
+
+# Check .config file exist 
+cd usapA3 || exit
+pwd
+if [ -e .config ] 
+then 
+	$ECHO ".config file exist"
+else
+	$ECHO ".config file does not exist"
+fi
