@@ -103,16 +103,22 @@ cd .. || exit
 
 # 5. Make backup for /boot before pasting new kernel
 
-if [ -e $IMAGE_NAME ] 
+if [ -e "$IMAGE_NAME" ] 
 then
 	$ECHO "Deleting old backup and make new backup"
-	$RM $IMAGE_NAME
-	$TAR -zcvf $IMAGE_NAME /boot
+	$RM "$IMAGE_NAME"
+	$TAR -zcvf "$IMAGE_NAME" /boot
 else
 	$ECHO "Backup"
-	$TAR -zcvf $IMAGE_NAME /boot
+	$TAR -zcvf "$IMAGE_NAME" /boot
 fi
 $ECHO
 $ECHO "Backup complete" 
 
 # 6. Copy new kernel to /boot
+cd linux/ || exit
+sudo $MAKE modules_install
+sudo $CP arch/arm/boot/dts/*.dtb /boot/
+sudo $CP arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/
+sudo $CP arch/arm/boot/dts/overlays/README /boot/overlays/
+sudo $CP arch/arm/boot/boot/zImage /boot/$KERNEL.img
