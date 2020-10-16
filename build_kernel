@@ -3,16 +3,28 @@
 # RMIT USAP Assignment 3 build_kernel
 # Author : Aldo Irvine
 # Email : s3692192@student.rmit.edu.au
+# Pi Version : 4
+
 
 # Command list :
 ECHO=/bin/echo
 GIT=/usr/bin/git
 LS=/bin/ls
 CP=/bin/cp
+MAKE=/usr/bin/make
+TAR=/bin/tar
+RM=/bin/rm
+
+# Install pre-requisites tools 
+$ECHO "0. Installing pre-requisite package to compile"
+$ECHO
+sudo apt install raspberrypi-kernel-headers build-essential bc git wget bison flex libssl-dev make
+
 
 # 1. Checkout private repo (https://github.com/AldoIrvine111/usapA3
 
 # Use if statement to check if repo is not existed, cloned else pull to update latest changes made in repo.
+
 $ECHO
 $ECHO "1. Checkout private repo"
 
@@ -56,19 +68,51 @@ $ECHO
 $LS -a 
 $ECHO
 
+
 # 3. Copy your ".config" file into the right place
+
 # Copy .config file from usapA3 to linux 
 
 cd usapA3 || exit
 
 if [ -e .config ] 
 then 
-	$ECHO "Copying .config to ../linux"
+	$ECHO "3. Copying .config to ../linux"
 	$CP .config ../linux
 	cd ../linux || exit
 else
 	$ECHO ".config file does not exist"
+	exit 1
 fi
-
 $ECHO
-pwd
+
+
+# 4. Build kernel
+
+
+# Compile kernel
+# Set kernel based on Pi version 4
+$ECHO "4. Compiling kernel"
+KERNEL=kernel7l
+$ECHO "Using $KERNEL for Pi4"
+$MAKE -j4 zImage modules dtbs
+$ECHO "Image is ready"
+$ECHO
+cd .. || exit
+
+
+# 5. Make backup for /boot before pasting new kernel
+
+if [ -e $IMAGE_NAME ] 
+then
+	$ECHO "Deleting old backup and make new backup"
+	$RM $IMAGE_NAME
+	$TAR -zcvf $IMAGE_NAME /boot
+else
+	$ECHO "Backup"
+	$TAR -zcvf $IMAGE_NAME /boot
+fi
+$ECHO
+$ECHO "Backup complete" 
+
+# 6. Copy new kernel to /boot
