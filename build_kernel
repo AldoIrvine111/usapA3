@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# RMIT USAP Assignment 3 build_kernel
+
+# 1. Checkout private repo 
+echo "checkout private repo"
