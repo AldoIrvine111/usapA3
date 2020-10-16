@@ -20,7 +20,8 @@ if [ -d usapA3 ]
 then
 	# Pull any changes made
 	$ECHO "Directory usapA3 exist, pulling latest master branch"
-	$GIT pull 
+	$GIT pull
+       	$GIT log	
 else
 	$ECHO "Directory usapA3 does not exist, cloning repo using SSH"
 	$GIT clone git@github.com:AldoIrvine111/usapA3.git
