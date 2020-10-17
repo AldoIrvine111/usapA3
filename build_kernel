@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # RMIT USAP Assignment 3 build_kernel
 # Author : Aldo Irvine
@@ -21,7 +21,7 @@ $ECHO
 sudo apt install raspberrypi-kernel-headers build-essential bc git wget bison flex libssl-dev make
 
 
-# 1. Checkout private repo (https://github.com/AldoIrvine111/usapA3
+# 1. Checkout private repo (https://github.com/AldoIrvine111/usapA3)
 
 # Use if statement to check if repo is not existed, cloned else pull to update latest changes made in repo.
 
@@ -48,7 +48,7 @@ fi
 # Use if statement to check if repo is not existed, cloned else pull to update latest changes made in repo.
 
 $ECHO 
-$ECHO "2. Checkput raspbbery pi kernel repository"
+$ECHO "2. Checkout raspbbery pi kernel repository"
 
 if [ -d linux ]
 then
@@ -103,6 +103,7 @@ cd .. || exit
 
 # 5. Make backup for /boot before pasting new kernel
 
+IMAGE_NAME=raspberry-pi-2020-backup.tar.gz
 if [ -e "$IMAGE_NAME" ] 
 then
 	$ECHO "Deleting old backup and make new backup"
@@ -113,7 +114,7 @@ else
 	$TAR -zcvf "$IMAGE_NAME" /boot
 fi
 $ECHO
-$ECHO "Backup complete" 
+$ECHO "Backup complete"
 
 # 6. Copy new kernel to /boot
 cd linux/ || exit
@@ -121,4 +122,4 @@ sudo $MAKE modules_install
 sudo $CP arch/arm/boot/dts/*.dtb /boot/
 sudo $CP arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/
 sudo $CP arch/arm/boot/dts/overlays/README /boot/overlays/
-sudo $CP arch/arm/boot/boot/zImage /boot/$KERNEL.img
+sudo $CP arch/arm/boot/zImage /boot/$KERNEL.img
