@@ -1,0 +1,174 @@
+commit 1baa3d2a8e6064f54d2504416c81c9d2f2001c96
+Author: Aldo Irvine <61996749+AldoIrvine111@users.noreply.github.com>
+Date:   Sun Oct 18 19:53:43 2020 +1100
+
+    Update report.md
+
+commit 99fb04d314892930fa1997636413b335fcb5f11e
+Author: Aldo Irvine <61996749+AldoIrvine111@users.noreply.github.com>
+Date:   Sun Oct 18 19:52:04 2020 +1100
+
+    Update README.md
+
+commit 84b16b1bed0f86bcc92dde9f67f62018105911b1
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 19:51:08 2020 +1100
+
+    Add documentation folder
+
+commit 835f81596f3188e1979dc253620a733076a30ff8
+Author: Aldo Irvine <61996749+AldoIrvine111@users.noreply.github.com>
+Date:   Sun Oct 18 19:37:39 2020 +1100
+
+    Add new Graph with xlabel and ylabel labeled
+
+commit 7e175b23d4116dfb9c7aaaff66f3295e7e31562a
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 19:37:02 2020 +1100
+
+    Remove previous PNG
+
+commit 71d1f7280ae6052192b8f1e907fb817cf07bbd81
+Author: Aldo Irvine <61996749+AldoIrvine111@users.noreply.github.com>
+Date:   Sun Oct 18 19:28:14 2020 +1100
+
+    Add Graph
+
+commit 67a1943bbd430d6ef63b555705e16fa41817c925
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 19:18:53 2020 +1100
+
+    Latest data
+
+commit 4ec22f879fa6e8da3a81685b14a83a37e99ab31e
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 17:53:07 2020 +1100
+
+    testing process
+
+commit 2c33fb8c9f358baa193dac3359aff9330c53ebde
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 17:51:53 2020 +1100
+
+    Fix performance monitoring to record with elapsed time and implement to build_kernel to send USR1 signal
+
+commit 3e0bf13ade9e7a03e822965e458ca3108970ac9a
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 16:06:47 2020 +1100
+
+    Trap USR1 is implemented in script
+
+commit 19a3e9bab116735825daa300054a2cb55cc652d4
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 14:34:12 2020 +1100
+
+    performance_monitoring script will create kernel_performance_data
+
+commit c37be4256150fca38e925494ecc81af83261a2cf
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 14:01:45 2020 +1100
+
+    Print temp with second script
+
+commit d3c22bed6954378a7ea4288f65d9766cd96dda97
+Merge: 5cad8584a 43bf55f0a
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sat Oct 17 13:08:46 2020 +1100
+
+    Merge branch 'master' of github.com:AldoIrvine111/usapA3
+
+commit 5cad8584a6e4f3692df34455c3920ccd0d9801f3
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sat Oct 17 13:08:02 2020 +1100
+
+    Typo fix
+
+commit 43bf55f0af0ed9a15a2e13a0778085cb0a03f3ce
+Author: Aldo Irvine <61996749+AldoIrvine111@users.noreply.github.com>
+Date:   Fri Oct 16 23:41:35 2020 +1100
+
+    Update README.md
+
+commit 746171e6261e622ee5f5c96c8320b78b8ca79d02
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 21:27:16 2020 +1100
+
+    Copy new kernel to /boot partition
+
+commit f4af7cb1c9527015160fd44696c41a1085e6075c
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 21:17:29 2020 +1100
+
+    Build kernel and make backup
+
+commit 604ee985ee4716a984eba6e18975a7000303f7e8
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 18:21:29 2020 +1100
+
+    Refactoring code
+
+commit 4351039202d24fe773c172a1ee6fb360e0b543ee
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 18:19:49 2020 +1100
+
+    Fix bug (cloned repo does not pull, add cd)
+
+commit 7f3b1b6be55b235fa7ecb86e18edc259185f0a6f
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 18:17:01 2020 +1100
+
+    testing git pull
+
+commit 30f1274084653fd15374efb76ea7950ab834a1d7
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 18:14:29 2020 +1100
+
+    Copy .config file to the right place
+
+commit 0e04e376a6b392ccfe89f29edaf89385490130ad
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 18:01:00 2020 +1100
+
+    Checkout raspberry pi kernel as provided in week 7 lab sheet
+
+commit d344c284ee3be370ae2d0f0b240ae43b11f18717
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 17:40:23 2020 +1100
+
+    Use if operator to check repo is cloned or not
+
+commit ab58bc27b509b61a862e104783da198af7368bf2
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 17:29:55 2020 +1100
+
+    git pull cloned repo
+
+commit c6840f79449288db8cd6477dab33973150e16319
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 17:20:45 2020 +1100
+
+    Checkout git repo using SSH
+
+commit 134f8b6083e2a79325397464d8ff051102a8bd39
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 17:07:06 2020 +1100
+
+    .config added to git
+
+commit 897325e4d7bff599a849bb3afd718617dc48d76d
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 16:52:19 2020 +1100
+
+    Add git pull
+
+commit 1d6644501bffca7ce7ce965b837d3abe1d8aae08
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Fri Oct 16 16:45:58 2020 +1100
+
+    Initial commit
+
+commit d372740beb096f1c7db5813192bd775e93b8b579
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Thu Oct 8 21:45:39 2020 +1100
+
+    Test

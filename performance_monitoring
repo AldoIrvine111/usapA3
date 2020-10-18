@@ -31,7 +31,8 @@ while true
 do
 	temp=$($VCGENCMD measure_temp | $EGREP -o  '[0-9]*\.[0-9]*')
 	timestamp=$($ECHO "$SECONDS")
-	$PRINTF "%-15s\t%5s\n" "$timestamp" "$temp" >> kernel_performance_data
+	# Output from printf will append to kernel_performance_data
+	$PRINTF "%-15s\t%5s\n" "$timestamp" "$temp" >> kernel_performance_data 	
 	sleep 1
 done
 
