@@ -14,13 +14,12 @@ sigusr1(){
 trap 'sigusr1' USR1
 
 $ECHO "Starting performance data. PID: $$"
-$PRINTF "%-15s\t%5s\n" "TIME_STAMP" "TEMP(Celcius)" >> kernel_performance_data
-$PRINTF "%20s\n" "----------------------------" >> kernel_performance_data
+SECONDS=1
 
 while true
 do
 	temp=$($VCGENCMD measure_temp | $EGREP -o  '[0-9]*\.[0-9]*')
-	timestamp=$(date '+%H:%M:%S')
+	timestamp=$($ECHO "$SECONDS")
 	$PRINTF "%-15s\t%5s\n" "$timestamp" "$temp" >> kernel_performance_data
 	sleep 1
 done

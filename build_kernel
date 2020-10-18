@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash 
 
 # RMIT USAP Assignment 3 build_kernel
 # Author : Aldo Irvine
@@ -14,6 +14,9 @@ CP=/bin/cp
 MAKE=/usr/bin/make
 TAR=/bin/tar
 RM=/bin/rm
+MONITOR=./performance_monitoring
+
+
 
 # Install pre-requisites tools 
 $ECHO "0. Installing pre-requisite package to compile"
@@ -24,6 +27,7 @@ sudo apt install raspberrypi-kernel-headers build-essential bc git wget bison fl
 # 1. Checkout private repo (https://github.com/AldoIrvine111/usapA3)
 
 # Use if statement to check if repo is not existed, cloned else pull to update latest changes made in repo.
+
 
 $ECHO
 $ECHO "1. Checkout private repo"
@@ -43,9 +47,11 @@ else
 fi
 
 
+
 # 2. Checkout raspberry pi kernel repository
 
 # Use if statement to check if repo is not existed, cloned else pull to update latest changes made in repo.
+
 
 $ECHO 
 $ECHO "2. Checkout raspbbery pi kernel repository"
@@ -54,19 +60,18 @@ if [ -d linux ]
 then
 	cd linux || exit
 	# Pull any changes made
-	$ECHO "Directory linux exist, pulling latest master branch"
-	$GIT pull 
+	$ECHO "Directory linux exist" 
 	cd ..
 else
 	$ECHO "Directory linux does not exist, cloning repo"
-	$GIT clone --depth=1 https://github.com/raspberrypi/linux
-	$LS -a 
+	$GIT clone --depth=1 https://github.com/raspberrypi/linux 
 	$ECHO "Complete cloning repo (linux)"
 fi
 
 $ECHO 
 $LS -a 
 $ECHO
+
 
 
 # 3. Copy your ".config" file into the right place
@@ -79,7 +84,6 @@ if [ -e .config ]
 then 
 	$ECHO "3. Copying .config to ../linux"
 	$CP .config ../linux
-	cd ../linux || exit
 else
 	$ECHO ".config file does not exist"
 	exit 1
@@ -89,7 +93,13 @@ $ECHO
 
 # 4. Build kernel
 
-
+$ECHO "Starting performance script"
+cd .. || exit
+$MONITOR &
+SID=$(ps -A | awk '/performance_mon/{print $1}')
+$ECHO $SID
+sleep 5
+cd linux/ || exit
 # Compile kernel
 # Set kernel based on Pi version 4
 $ECHO "4. Compiling kernel"
@@ -98,6 +108,7 @@ $ECHO "Using $KERNEL for Pi4"
 $MAKE -j4 zImage modules dtbs
 $ECHO "Image is ready"
 $ECHO
+kill -USR1 "$SID"
 cd .. || exit
 
 
@@ -123,3 +134,4 @@ sudo $CP arch/arm/boot/dts/*.dtb /boot/
 sudo $CP arch/arm/boot/dts/overlays/*.dtb* /boot/overlays/
 sudo $CP arch/arm/boot/dts/overlays/README /boot/overlays/
 sudo $CP arch/arm/boot/zImage /boot/$KERNEL.img
+
