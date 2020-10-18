@@ -1,3 +1,15 @@
+commit e9a062d2d8c0b645b5d0ce40f9d6620d380bc167
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 20:32:09 2020 +1100
+
+    Man page for build_kernel and performance_monitoring script in documentation directory
+
+commit 5be0ed658c7245bbc317a10054d4f961522d8442
+Author: Aldo Irvine <s3692192@student.rmit.edu.au>
+Date:   Sun Oct 18 20:17:02 2020 +1100
+
+    Documentation and adding comment on script
+
 commit 1baa3d2a8e6064f54d2504416c81c9d2f2001c96
 Author: Aldo Irvine <61996749+AldoIrvine111@users.noreply.github.com>
 Date:   Sun Oct 18 19:53:43 2020 +1100
