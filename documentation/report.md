@@ -8,4 +8,4 @@ Student Email	 : s3692192@student.rmit.edu.au
 ```
 
 # Graph 
-![repo_images](https://github.com/AldoIrvine111/usapA3/documentation/Graph.PNG)
+![repo_images](https://github.com/AldoIrvine111/usapA3/blob/master/documentation/Graph.PNG)
