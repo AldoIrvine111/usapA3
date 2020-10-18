@@ -1,9 +1,16 @@
 #!/bin/bash
 
+# RMIT USAP Assignment 2 performance_monitoring
+# Author : Aldo Irvine
+# Email : s3692192@student.rmit.edu.au
+# Pi Version : 4
+
+# Command list :
 VCGENCMD=/usr/bin/vcgencmd
 PRINTF=/usr/bin/printf
 EGREP=/bin/egrep
 ECHO=/bin/echo
+
 
 # Function to call when trap is executed
 sigusr1(){
@@ -11,7 +18,11 @@ sigusr1(){
 	exit 0
 }
 
+# Trap signal from build_kernel script
 trap 'sigusr1' USR1
+
+
+# Capture the temperature of CPU every second and will stop once build_kernel send USR1 signal
 
 $ECHO "Starting performance data. PID: $$"
 SECONDS=1

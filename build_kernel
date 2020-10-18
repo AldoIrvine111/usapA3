@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-# RMIT USAP Assignment 3 build_kernel
+# RMIT USAP Assignment 2 build_kernel
 # Author : Aldo Irvine
 # Email : s3692192@student.rmit.edu.au
 # Pi Version : 4
@@ -93,11 +93,14 @@ $ECHO
 
 # 4. Build kernel
 
+# Initiate performance_monitoring script
 $ECHO "Starting performance script"
 cd .. || exit
 $MONITOR &
+
+# Capture the ID of performance_monitoring script
 SID=$(ps -A | awk '/performance_mon/{print $1}')
-$ECHO $SID
+$ECHO "$SID"
 sleep 5
 cd linux/ || exit
 # Compile kernel
@@ -108,6 +111,7 @@ $ECHO "Using $KERNEL for Pi4"
 $MAKE -j4 zImage modules dtbs
 $ECHO "Image is ready"
 $ECHO
+# Send USR1 signal to stop performance_monitoring through the ID
 kill -USR1 "$SID"
 cd .. || exit
 
