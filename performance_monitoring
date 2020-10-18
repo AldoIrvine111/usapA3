@@ -1,0 +1,12 @@
+#!/bin/bash
+
+VCGENCMD=/usr/bin/vcgencmd
+ECHO=/bin/echo
+
+measuretemp(){
+	$VCGENCMD measure_temp
+}
+
+
+$ECHO "Hi This is performance testing"
+$ECHO "$(measuretemp)"
